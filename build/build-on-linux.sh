@@ -79,33 +79,33 @@ fi
 
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_HOME
-if [[ ! $(command -v sdkmanager) ]]; then
-    echo "install android sdk and sdkmanager ....."
-    wget -q ${DOWNLOAD_URL}/${SDK_FILE_NAME} && unzip ${SDK_FILE_NAME} -d ${ANDROID_HOME} && rm -rf ${SDK_FILE_NAME}*
-
-    # update PATH
-    echo 'export PATH=${PATH}'":${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools" >> ~/.bashrc
-    source ~/.bashrc
-fi
+# if [[ ! $(command -v sdkmanager) ]]; then
+#     echo "install android sdk and sdkmanager ....."
+#     wget -q ${DOWNLOAD_URL}/${SDK_FILE_NAME} && unzip ${SDK_FILE_NAME} -d ${ANDROID_HOME} && rm -rf ${SDK_FILE_NAME}*
+# 
+#     # update PATH
+#     echo 'export PATH=${PATH}'":${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools" >> ~/.bashrc
+#     source ~/.bashrc
+# fi
 
 # ------------------------------------------------------
 # --- Install open-jdk
-if [[ ! $(command -v java) ]]; then
-    echo "install openjdk-8-jdk ....."
-
-   # Debian(Ubuntu) or RHEL(CentOS)
-    cmd="apt"
-    if [[ $(command -v yum) ]]; then
-    	cmd="yum"
-    fi
-
-    ${cmd} install -y unzip openjdk-8-jdk
-fi
-
-if [[ ${update_android_sdk} == "1" ]] ; then
+# if [[ ! $(command -v java) ]]; then
+#     echo "install openjdk-8-jdk ....."
+# 
+#   # Debian(Ubuntu) or RHEL(CentOS)
+#     cmd="apt"
+#     if [[ $(command -v yum) ]]; then
+#     	cmd="yum"
+#     fi
+# 
+#     ${cmd} install -y unzip openjdk-8-jdk
+# fi
+# 
+# if [[ ${update_android_sdk} == "1" ]] ; then
     # ------------------------------------------------------
     # --- install package and NDK
-    echo "sdkmanager install tools ....."
+     echo "sdkmanager install tools ....."
 
     sdkmanager --verbose --list | awk -f ${root_dir}/build/awk/parse.awk > ${ANDROID_HOME}/${PACKAGE_INSTALL_FILE}
     readarray -t package_names < ${ANDROID_HOME}/${PACKAGE_INSTALL_FILE}
