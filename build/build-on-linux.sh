@@ -77,16 +77,16 @@ if [[ ! $(command -v go) ]]; then
     source ~/.bashrc
 fi
 
-# ------------------------------------------------------
-# --- Download Android SDK tools into $ANDROID_HOME
-# if [[ ! $(command -v sdkmanager) ]]; then
-#     echo "install android sdk and sdkmanager ....."
-#     wget -q ${DOWNLOAD_URL}/${SDK_FILE_NAME} && unzip ${SDK_FILE_NAME} -d ${ANDROID_HOME} && rm -rf ${SDK_FILE_NAME}*
-# 
-#     # update PATH
-#     echo 'export PATH=${PATH}'":${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools" >> ~/.bashrc
-#     source ~/.bashrc
-# fi
+ ------------------------------------------------------
+ --- Download Android SDK tools into $ANDROID_HOME
+ if [[ ! $(command -v sdkmanager) ]]; then
+     echo "install android sdk and sdkmanager ....."
+     wget -q ${DOWNLOAD_URL}/${SDK_FILE_NAME} && unzip ${SDK_FILE_NAME} -d ${ANDROID_HOME} && rm -rf ${SDK_FILE_NAME}*
+ 
+     # update PATH
+     echo 'export PATH=${PATH}'":${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools" >> ~/.bashrc
+     source ~/.bashrc
+ fi
 
 # ------------------------------------------------------
 # --- Install open-jdk
