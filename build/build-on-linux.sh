@@ -102,7 +102,7 @@ fi
 #     ${cmd} install -y unzip openjdk-8-jdk
 # fi
 # 
-# if [[ ${update_android_sdk} == "1" ]] ; then
+if [[ ${update_android_sdk} == "1" ]] ; then
     # ------------------------------------------------------
     # --- install package and NDK
      echo "sdkmanager install tools ....."
